@@ -1,5 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 To Do Items
+  table
+    thead
+      tr
+        th Description
+        th Completed?
+    tbody
+      each item in toDoItems
+        tr
+          td= item.description
+          td= item.completed
