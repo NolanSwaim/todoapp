@@ -1,6 +1,7 @@
 const {sequelize} = require("../models/index");
 const {QueryTypes} = require("sequelize");
 const {Todo} = require('../models/index');
+
 module.exports.homeRoute = async function(req, res, next) {
     let toDoItems = await Todo.findAll();
     res.render('index', {toDoItems});
@@ -27,8 +28,8 @@ module.exports.markItemAsComplete = async function(req, res){
 };
 
 module.exports.markItemAsIncomplete = async function(req, res){
-    await Todo.update({completed: false},{
-        where:{
+    await Todo.update({completed: false },{
+        where: {
             id: req.params.id
         }
     });
